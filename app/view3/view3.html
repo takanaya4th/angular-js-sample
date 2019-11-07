@@ -1,2 +1,21 @@
-<p>view3だよー</p>
 <p>{{ msg }}</p>
+<label for="name">名前：</label>
+<input id="name" name="name" type="text" ng-model="myName"/>
+<div>こんにちは、{{myName}}さん</div>
+<div>はじめまして、{{::myName}}さん</div>
+<table class="table">
+  <tr>
+    <th>ISBNコード</th>
+    <th>書名</th>
+    <th>価格</th>
+    <th>出版社</th>
+    <th>刊行日</th>
+  </tr>
+  <tr ng-repeat="book in ::books">
+    <td>{{::book.isbn}}</td>
+    <td>{{::book.title}}</td>
+    <td>{{::book.price}}円</td>
+    <td>{{::book.publish}}</td>
+    <td>{{::book.published | date: 'yyyy年MM月dd日'}}</td>
+  </tr>
+</table>
